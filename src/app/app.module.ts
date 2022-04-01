@@ -9,6 +9,10 @@ import { DashboardComponent } from './main/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {ReactiveFormsModule} from "@angular/forms";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import {AuthInterceptor} from "./http.interceptor";
 
 @NgModule({
   declarations: [
@@ -21,9 +25,18 @@ import {ReactiveFormsModule} from "@angular/forms";
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatInputModule,
+    MatButtonModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi   : true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
