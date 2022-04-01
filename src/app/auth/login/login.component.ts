@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {AuthService} from "../auth.service";
 import {FormBuilder, Validators} from "@angular/forms";
+import {setBearerToken} from "../bearer-token";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -20,19 +22,21 @@ export class LoginComponent {
 
   constructor(
     private _authService: AuthService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _router: Router
   ) {
   }
 
   submit() {
     if (this.loginForm.valid) {
-      this._authService.login(this.loginForm.getRawValue())
-        .subscribe(
-          data => {
-            console.log(data)
-          }
-        )
     }
+    this._authService.login(this.loginForm.getRawValue())
+      .subscribe(
+        data => {
+          setBearerToken(data.access_token);
+          this._router.navigateByUrl("");
+        }
+      )
   }
 
 }
