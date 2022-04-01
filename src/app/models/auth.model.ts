@@ -11,3 +11,14 @@ export interface ILoginBody {
   user: string;
  }
 
+export interface ILoginResp {
+  user_id: string;
+  access_token: string;
+  home_server: string;
+  device_id: string;
+  well_known: {
+    "m.homeserver": {
+      base_url: string;
+    }
+  }
+}
