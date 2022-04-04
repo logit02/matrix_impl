@@ -1,6 +1,7 @@
 #container{
-  width:750px;
-  height:800px;
+  display: flex;
+  width:100%;
+  height:100%;
   background:#eff3f7;
   margin:0 auto;
   font-size:0;
@@ -9,16 +10,16 @@
 }
 aside{
   width:260px;
-  height:800px;
   background-color:#3b3e49;
   display:inline-block;
   font-size:15px;
   vertical-align:top;
 }
 main{
-  width:490px;
-  height:800px;
-  display:inline-block;
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction: column;
   font-size:15px;
   vertical-align:top;
 }
@@ -38,7 +39,7 @@ aside input{
   color:#fff;
   background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_search.png);
   background-repeat:no-repeat;
-  background-position:170px;
+  background-position:150px;
   background-size:40px;
 }
 aside input::placeholder{
@@ -48,7 +49,7 @@ aside ul{
   padding-left:0;
   margin:0;
   list-style-type:none;
-  overflow-y:scroll;
+  overflow-y:auto;
   height:690px;
 }
 aside li{
@@ -102,7 +103,7 @@ aside li h3{
 }
 
 main header{
-  height:110px;
+  height:60px;
   padding:30px 20px 30px 40px;
 }
 main header > *{
@@ -135,7 +136,7 @@ main header h3{
   margin:0;
   list-style-type:none;
   overflow-y:scroll;
-  height:535px;
+  height:80%;
   border-top:2px solid #fff;
   border-bottom:2px solid #fff;
 }
@@ -188,7 +189,7 @@ main header h3{
 
 main footer{
   height:155px;
-  padding:20px 30px 10px 20px;
+  padding:30px;
 }
 main footer textarea{
   resize:none;
@@ -197,9 +198,9 @@ main footer textarea{
   width:100%;
   height:80px;
   border-radius:3px;
-  padding:20px;
   font-size:13px;
   margin-bottom:13px;
+  padding: 10px 0 0 10px;
 }
 main footer textarea::placeholder{
   color:#ddd;
@@ -214,7 +215,7 @@ main footer a{
   font-weight:bold;
   color:#6fbced;
   vertical-align:top;
-  margin-left:333px;
+  margin-left: 10px;
   margin-top:5px;
   display:inline-block;
 }
