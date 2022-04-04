@@ -8,17 +8,9 @@ import {Observable} from "rxjs";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  private poolData$: Observable<Object>;
 
   constructor(
-    private longPollingService: LongPollingService
   ) {
-    this.poolData$ = this.longPollingService.nextSyncSubject$;
-    this.poolData$.subscribe(
-      data => {
-        console.log(data)
-      }
-    )
   }
 
 }
