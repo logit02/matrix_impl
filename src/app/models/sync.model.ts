@@ -28,3 +28,9 @@ interface IPresenceEvents {
   }
 }
 
+interface IDirect {
+  type: "m.direct",
+  content: {
+    [key: string]: string[]
+  }
+}
